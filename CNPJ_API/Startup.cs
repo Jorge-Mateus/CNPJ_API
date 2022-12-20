@@ -1,3 +1,7 @@
+using CNPJ_API.Interface;
+using CNPJ_API.Rest;
+using CNPJ_API.Service;
+using CNPJ_MODELS;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,7 +31,17 @@ namespace CNPJ_API
         public void ConfigureServices(IServiceCollection services)
         {
 
+            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            {
+                builder.WithOrigins()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader();
+            })); /*funciona perfeimante... ainda não é aqui*/
             services.AddControllers();
+            /*teste funciona porém ainda não é ele o correto*/
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            services.AddScoped<IRoot, RootService>();
+            services.AddScoped<IBrasilApi, BrasilApiRest>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CNPJ_API", Version = "v1" });
