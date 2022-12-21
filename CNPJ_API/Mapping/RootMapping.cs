@@ -14,6 +14,11 @@ namespace CNPJ_API.Mapping
         {
             CreateMap(typeof(ResponseGenerics<>), typeof(ResponseGenerics<>));
             CreateMap<RootResponse, Root>();
+            CreateMap<Root, RootResponse>();
+            CreateMap<Qsa, QsaResponse>();
+            CreateMap<QsaResponse, Qsa>();
+            CreateMap<CnaesSecundarioResponse, CnaesSecundario>();
+            CreateMap<CnaesSecundario, CnaesSecundarioResponse>();
         }
     }
 }

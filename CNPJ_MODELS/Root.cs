@@ -68,7 +68,7 @@ namespace CNPJ_MODELS
         public string Bairro { get; set; }
 
         [JsonPropertyName("cep")]
-        public int Cep { get; set; }
+        public string Cep { get; set; }
 
         [JsonPropertyName("uf")]
         public string Uf { get; set; }
@@ -92,16 +92,16 @@ namespace CNPJ_MODELS
         public int QualificacaoDoResponsavel { get; set; }
 
         [JsonPropertyName("capital_social")]
-        public int CapitalSocial { get; set; }
+        public double CapitalSocial { get; set; }
 
         [JsonPropertyName("porte")]
-        public int Porte { get; set; }
+        public string Porte { get; set; }
 
         [JsonPropertyName("descricao_porte")]
         public string DescricaoPorte { get; set; }
 
         [JsonPropertyName("opcao_pelo_simples")]
-        public bool OpcaoPeloSimples { get; set; }
+        public bool? OpcaoPeloSimples { get; set; }
 
         [JsonPropertyName("data_opcao_pelo_simples")]
         public object DataOpcaoPeloSimples { get; set; }
@@ -110,7 +110,7 @@ namespace CNPJ_MODELS
         public object DataExclusaoDoSimples { get; set; }
 
         [JsonPropertyName("opcao_pelo_mei")]
-        public bool OpcaoPeloMei { get; set; }
+        public bool? OpcaoPeloMei { get; set; }
 
         [JsonPropertyName("situacao_especial")]
         public object SituacaoEspecial { get; set; }

@@ -1,4 +1,7 @@
+using AutoMapper;
+using CNPJ_API.Dtos;
 using CNPJ_API.Interface;
+using CNPJ_API.Mapping;
 using CNPJ_API.Rest;
 using CNPJ_API.Service;
 using CNPJ_MODELS;
@@ -38,10 +41,22 @@ namespace CNPJ_API
                         .AllowAnyHeader();
             })); /*funciona perfeimante... ainda não é aqui*/
             services.AddControllers();
+
             /*teste funciona porém ainda não é ele o correto*/
-            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            /* var config = new AutoMapper.MapperConfiguration(cfg =>
+             {
+                 cfg.CreateMap<Root, RootResponse>();
+                 cfg.CreateMap<RootResponse, Root>();
+             });
+             IMapper mapper = config.CreateMapper();
+             services.AddSingleton(mapper);*/
+
+            services.AddAutoMapper(typeof(RootMapping));
+
             services.AddScoped<IRoot, RootService>();
             services.AddScoped<IBrasilApi, BrasilApiRest>();
+            
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CNPJ_API", Version = "v1" });

@@ -26,7 +26,7 @@ namespace CNPJ_API.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> BuscarCNPJ([FromRoute][Required] string cnpj)
+        public async Task<IActionResult> BuscarCNPJ( string cnpj)
         {
             var response = await _rootService.BuscarCNPJ(cnpj);
             if (response.CodigoHttp == System.Net.HttpStatusCode.OK){

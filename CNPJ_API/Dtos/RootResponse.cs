@@ -26,7 +26,7 @@ namespace CNPJ_API.Dtos
         public string Numero { get; set; }
         public string Complemento { get; set; }
         public string Bairro { get; set; }
-        public int Cep { get; set; }
+        public string Cep { get; set; }
         public string Uf { get; set; }
         public int CodigoMunicipio { get; set; }
         public string Municipio { get; set; }
@@ -34,13 +34,13 @@ namespace CNPJ_API.Dtos
         public object DddTelefone2 { get; set; }
         public object DddFax { get; set; }
         public int QualificacaoDoResponsavel { get; set; }
-        public int CapitalSocial { get; set; }
-        public int Porte { get; set; }
+        public double CapitalSocial { get; set; }
+        public string Porte { get; set; }
         public string DescricaoPorte { get; set; }
-        public bool OpcaoPeloSimples { get; set; }
+        public bool? OpcaoPeloSimples { get; set; }
         public object DataOpcaoPeloSimples { get; set; }
         public object DataExclusaoDoSimples { get; set; }
-        public bool OpcaoPeloMei { get; set; }
+        public bool? OpcaoPeloMei { get; set; }
         public object SituacaoEspecial { get; set; }
         public object DataSituacaoEspecial { get; set; }
         public List<CnaesSecundarioResponse> CnaesSecundarios { get; set; }
