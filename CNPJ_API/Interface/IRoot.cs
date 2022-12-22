@@ -10,6 +10,7 @@ namespace CNPJ_API.Interface
     public interface IRoot
     {
         Task<ResponseGenerics<RootResponse>> BuscarCNPJ(string cnpj);
+      //  Task<ResponseGenerics<RootResponse>> AdcBuscarCNPJ(string cnpj);
 
     }
 }
