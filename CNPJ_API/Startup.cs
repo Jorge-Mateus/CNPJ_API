@@ -1,14 +1,17 @@
 using AutoMapper;
-using CNPJ_API.Dtos;
-using CNPJ_API.Interface;
-using CNPJ_API.Mapping;
-using CNPJ_API.Rest;
-using CNPJ_API.Service;
+using CNPJ_Application.Application;
+using CNPJ_Application.Interfaces;
+using CNPJ_Application.Mapping;
+using CNPJ_Application.Rest;
 using CNPJ_MODELS;
+using CNPJ_Persistence.Contexto;
+using CNPJ_Persistence.Interface;
+using CNPJ_Persistence.Persistence;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -33,24 +36,21 @@ namespace CNPJ_API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //Conexão banco de dados
+
+            services.AddDbContext<CnpjApiContext>(
+
+                x => x.UseSqlServer(Configuration.GetConnectionString("DefaultConn"))
+
+            );
 
             services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
             {
                 builder.WithOrigins()
                         .AllowAnyMethod()
                         .AllowAnyHeader();
-            })); /*funciona perfeimante... ainda não é aqui*/
+            })); 
             services.AddControllers();
-
-            /*teste funciona porém ainda não é ele o correto*/
-
-            /* var config = new AutoMapper.MapperConfiguration(cfg =>
-             {
-                 cfg.CreateMap<Root, RootResponse>();
-                 cfg.CreateMap<RootResponse, Root>();
-             });
-             IMapper mapper = config.CreateMapper();
-             services.AddSingleton(mapper);*/
 
             services.AddAutoMapper(typeof(RootMapping));
 

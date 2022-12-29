@@ -15,3 +15,4 @@ namespace CNPJ_Application.Dtos
         public ExpandoObject? ErroRetono { get; set; }
     }
 }
+

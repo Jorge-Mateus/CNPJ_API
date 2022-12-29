@@ -1,12 +1,13 @@
 ﻿using AutoMapper;
-using CNPJ_API.Dtos;
+using CNPJ_Application.Dtos;
 using CNPJ_MODELS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
-namespace CNPJ_API.Mapping
+namespace CNPJ_Application.Mapping
 {
     public class RootMapping : Profile
     {

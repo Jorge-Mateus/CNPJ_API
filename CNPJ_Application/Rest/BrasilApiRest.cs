@@ -1,15 +1,16 @@
-﻿using CNPJ_API.Dtos;
-using CNPJ_API.Interface;
+﻿using CNPJ_Application.Dtos;
+using CNPJ_Application.Interfaces;
 using CNPJ_MODELS;
 using System;
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
 using System.Net.Http;
+using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace CNPJ_API.Rest
+namespace CNPJ_Application.Rest
 {
     public class BrasilApiRest : IBrasilApi
     {

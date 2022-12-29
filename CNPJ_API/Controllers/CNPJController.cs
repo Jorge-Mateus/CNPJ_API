@@ -1,4 +1,4 @@
-﻿using CNPJ_API.Interface;
+﻿using CNPJ_Application.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -37,5 +37,31 @@ namespace CNPJ_API.Controllers
                 return StatusCode((int)response.CodigoHttp, response.ErroRetono);
             }
         }
+
+      /*  [HttpPost]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> AdcBuscarCNPJ(string cnpj)
+        {
+            try
+            {
+                var cnpjs = await _rootService.AdcBuscarCNPJ(cnpj);
+
+                //if (cnpjs.ErroRetono == null) return NotFound("Não pode ser escrito null ou deixar em vazio, preencha corretamente!");
+
+                if (cnpjs == null) return NoContent();
+
+                return Ok(cnpjs);
+            }
+            catch (Exception ex)
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError,
+                $"Erro ao tentar adicionar cnpj: {ex.Message}");
+            }
+
+        }*/
+
     }
 }
