@@ -11,6 +11,6 @@ namespace CNPJ_Application.Interfaces
     public interface IBrasilApi
     {
         Task<ResponseGenerics<Root>> BuscarCNPJ(string cnpj);
-       // Task<ResponseGenerics<Root>> AdcBuscarCNPJ(string cnpj);
+        //Task<ResponseGenerics<Root>> AdcBuscarCNPJ(string cnpj);
     }
 }
