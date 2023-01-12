@@ -15,10 +15,12 @@ namespace CNPJ_API.Controllers
     public class CNPJController : ControllerBase
     {
         private readonly IRoot _rootService;
+        private readonly IBrasilApi _brasilApi;
 
-        public CNPJController(IRoot rootService)
+        public CNPJController(IRoot rootService, IBrasilApi brasilApi)
         {
             _rootService = rootService;
+            _brasilApi = brasilApi;
         }
 
         [HttpGet("busca/{cnpj}")]
@@ -38,7 +40,7 @@ namespace CNPJ_API.Controllers
             }
         }
 
-      /*  [HttpPost]
+      [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -46,7 +48,7 @@ namespace CNPJ_API.Controllers
         public async Task<IActionResult> AdcBuscarCNPJ(string cnpj)
         {
             try
-            {
+            { 
                 var cnpjs = await _rootService.AdcBuscarCNPJ(cnpj);
 
                 //if (cnpjs.ErroRetono == null) return NotFound("Não pode ser escrito null ou deixar em vazio, preencha corretamente!");
@@ -61,7 +63,7 @@ namespace CNPJ_API.Controllers
                 $"Erro ao tentar adicionar cnpj: {ex.Message}");
             }
 
-        }*/
+        }
 
     }
 }
